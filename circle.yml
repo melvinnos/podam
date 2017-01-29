@@ -1,20 +1,16 @@
-machine:
 
-  timezone:
-    America/New_York #Setting the tie zone
+machine:
+  ruby:
+    version: rbx-2.2.6
+
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+     - target
       
-  java:
-    version: openjdk8
-    
-  dependencies:
-    pre:
-      - sudo rsync -r --include=*/ --include=*.jar --exclude=* .jdk-overlay/jre $JAVA_HOME
-      
-  test:
-    override:
-      junit test
-    post:
-      - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-      - find . -type f -regex ".*/target/.*-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-      
-    
+test:
+  override:
+    - mvn clean install
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
