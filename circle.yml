@@ -1,22 +1,15 @@
 machine:
   ruby:
     version: rbx-2.2.6
-    
-  java:
-    version: openjdk6
- 
-  dependencies:
-    override:   
-      - mvn --fail-never dependency:go-offline || true
 
-  general:
-     artifacts:
-       - $CIRCLE_TEST_REPORTS
-       - target
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+     - target
       
-  test:
-    override:
-      - mvn install -s settings.xml
-    post:
-      - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-      - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+test:
+  override:
+    - mvn clean install
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
