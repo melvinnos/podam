@@ -1,2 +1,19 @@
+machine:
 
+  timezone:
+    America/Los_Angeles
+    
+  java:
+    version: openjdk7
 
+general:
+   artifacts:
+     - $CIRCLE_TEST_REPORTS
+     - target
+      
+test:
+  override:
+    - mvn clean install
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
