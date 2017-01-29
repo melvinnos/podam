@@ -1,28 +1,5 @@
-## Customize the test machine
-machine:
-
-  # Configuring the memory size.
-  environment:
-    _JAVA_OPTIONS: "-Xms512m -Xmx2048m"
-
-   # Set the timezone
-  timezone:
-    America/Los_Angeles
-    
-  # Version of Java to use
-  java:
-    version: openjdk7
-
-## Configuring artifacts to be retrieved
-general:
-   artifacts:
-     - $CIRCLE_TEST_REPORTS
-     - target
-
 ## Configuring test     
 test:
-  override:
-    - mvn integration-test
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
