@@ -4,12 +4,11 @@ machine:
     America/Los_Angeles
     
   java:
-    version: openjdk6
+    version: openjdk7
 
 dependencies:
   pre:
-    - apt-get install ruby2.2.6
-    - ruby --version
+    - wget http://download.eclipse.org/egit/github/updates
 
 general:
    artifacts:
