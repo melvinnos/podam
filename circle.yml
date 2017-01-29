@@ -8,13 +8,7 @@ machine:
 
 dependencies:
   pre:
-    - curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-    - curl -L get.rvm.io | bash -s stable
-    - source /etc/profile.d/rvm.sh
-    - rvm reload
-    - rvm requirements run
-    - rvm install 2.2.4
-    - rvm use 2.2.4 --default
+    - apt-get install ruby2.2.6
     - ruby --version
 
 general:
