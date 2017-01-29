@@ -5,9 +5,6 @@ machine:
     
   ruby:
     version: rbx-2.2.6
-  
-  java:
-    version: openjdk6
 
 dependencies:
   pre:
