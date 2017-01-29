@@ -1,16 +1,21 @@
+## Customize the test machine
 machine:
 
+   # Set the timezone
   timezone:
     America/Los_Angeles
     
+  # Version of Java to use
   java:
-    version: openjdk7
+    version: oraclejdk7
 
+## Configuring artifacts to be retrieved
 general:
    artifacts:
      - $CIRCLE_TEST_REPORTS
      - target
-      
+
+## Configuring test     
 test:
   override:
     - mvn integration-test
