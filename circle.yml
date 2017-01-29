@@ -8,8 +8,8 @@ machine:
 
 dependencies:
   pre:
-    - wget http://archive.eclipse.org/egit/updates-3.1
-    - mvn install:install-file -DgroupId=org.eclipse.mylyn.github -DartifactId=org.eclipse.egit.github.core -Dversion=3.1.0.201310021548-r -Dpackaging=jar -Dfile=updates
+    - wget https://repo.eclipse.org/content/repositories/egit-releases/org/eclipse/mylyn/github/org.eclipse.mylyn.github.core/3.1.0.201310021548-r/org.eclipse.mylyn.github.core-3.1.0.201310021548-r.jar
+    - mvn install:install-file -DgroupId=org.eclipse.mylyn.github -DartifactId=org.eclipse.egit.github.core -Dversion=3.1.0.201310021548-r -Dpackaging=jar -Dfile=org.eclipse.mylyn.github.core-3.1.0.201310021548-r.jar
 
 general:
    artifacts:
