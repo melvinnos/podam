@@ -1,6 +1,10 @@
 ## Customize the test machine
 machine:
 
+  # Configuring the memory size.
+  environment:
+    _JAVA_OPTIONS: "-Xms512m -Xmx2048m"
+
    # Set the timezone
   timezone:
     America/Los_Angeles
