@@ -7,7 +7,7 @@ machine:
     
   # Version of Java to use
   java:
-    version: oraclejdk7
+    version: openjdk7
 
 ## Configuring artifacts to be retrieved
 general:
